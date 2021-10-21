@@ -1,1 +1,1 @@
-# Notes_ReactFE_DjangoBE
+# Notes_ReactFE
