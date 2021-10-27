@@ -4,7 +4,20 @@
 
 .dateCard{
   width: 18rem;
-  margin-left: 22rem;
+  display: inline-block;
+  margin-left: 1rem;
   margin-top: 1rem;
   margin-bottom: 2rem;
+  border-radius: 1rem;
+  border: solid;
+}
+
+/* .dateCardPosition {
+
+  
+  
+} */
+
+.btn{
+margin-left: 3rem;
 }
