@@ -1,14 +1,26 @@
 // import notes from '../assets/data';
 // import React from 'react';
-// import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 // import axios from 'axios';
-// const notesBaseURL = "http://localhost:3001/notes"
 
-function DetailsCard({note}) {
-    // let noteId = match.params.id;
+
+function DetailsCard({ match }) {
+    let noteId = match.params.id;
+    const notesBaseURL = `http://localhost:3001/notes/${noteId}`
     // let note = notes.find(note => note.id === Number(noteId))
+    let [note, setNote] = useState(null);
+    useEffect(() => {
+        getNote()
+        // axios.get(notesBaseURL).then((response) => {
+        //     console.log(response.data)
+        // })
+    }, [noteId])
 
-    
+    async function getNote() {
+        let response = await fetch(notesBaseURL)
+        let data = await response.json()
+        setNote(data);
+    }
 
 
 

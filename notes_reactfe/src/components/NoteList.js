@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom'
 
 
 function NoteList({note}) {
-    // console.log(props)
     
     return (
         <div className="card dateCard">
