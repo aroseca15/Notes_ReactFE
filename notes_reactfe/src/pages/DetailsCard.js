@@ -57,12 +57,12 @@ function DetailsCard({ match, history }) {
                 </div>
             </div>
 
-            {showTextBox ? <>
-                <textarea onChange={(e) => { setNote(...note, { 'note': e.target.value })}} value={note?.note}></textarea>
+            {showTextBox ? <div>
+                <textarea onChange={(e) => { setNote(...note, { 'note': e.target.value }) }} value={note?.note}></textarea>
                 <div>
                     <button onClick={handleSubmit}>Save</button>
                 </div>
-            </> : null}
+            </div> : null}
         </>
     )
 }
