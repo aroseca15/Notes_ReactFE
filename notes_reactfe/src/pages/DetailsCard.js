@@ -44,7 +44,7 @@ function DetailsCard({ match, history }) {
 
     return (
         <>
-            <div className="card" style={{ width: "18rem;" }}>
+            <div className="card" style={{ width: "18rem", display: "inline-block" }}>
                 <div className="card-body">
                     <button onClick={onClickTB}>Edit Note</button>
                     <h5 className="card-title">{note?.patient}</h5>
