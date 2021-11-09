@@ -15,9 +15,7 @@ function DetailsCard({ match, history }) {
     let [note, setNote] = useState(null);
     useEffect(() => {
         getNote()
-        // axios.get(notesBaseURL).then((response) => {
-        //     console.log(response.data)
-        // })
+        
     }, [noteId])
 
     async function getNote() {
@@ -27,18 +25,29 @@ function DetailsCard({ match, history }) {
     }
 
     let updateNote = async () => {
+        const data = {
+            ...note, 
+            'updated': new Date()
+        }
+        console.log('data:', data)
         await fetch(notesBaseURL, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
             },
-            note: JSON.stringify({ ...note, 'updated': new Date() })
+            note: JSON.stringify(data)
         })
     }
 
     let handleSubmit = () => {
         updateNote()
         history.push('/notes')
+    }
+
+    const handleNoteUpdate = (e) => { 
+        console.log('e.target.value', e.target.value)
+        console.log('note', note)
+        setNote({...note,  'note': e.target.value }) 
     }
 
 
@@ -58,7 +67,7 @@ function DetailsCard({ match, history }) {
             </div>
 
             {showTextBox ? <div>
-                <textarea onChange={(e) => { setNote(...note, { 'note': e.target.value }) }} value={note?.note}></textarea>
+                <textarea onChange={handleNoteUpdate} value={note?.note}></textarea>
                 <div>
                     <button onClick={handleSubmit}>Save</button>
                 </div>
@@ -68,3 +77,5 @@ function DetailsCard({ match, history }) {
 }
 
 export default DetailsCard;
+
+// (e) =>  setNote(...note, { 'note': e.target.value }) 
